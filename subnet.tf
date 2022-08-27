@@ -1,6 +1,7 @@
 resource "aws_subnet" "main" {
+  count      = 3
   vpc_id     = aws_vpc.main.id
-  cidr_block = ????????
+  cidr_block = var.SUBNET_CIDR
 
   tags = {
     Name = "Main"
