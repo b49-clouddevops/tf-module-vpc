@@ -10,3 +10,6 @@ resource "aws_subnet" "main" {
 
 
 #### The number of subnets to be created will be based on the numbers of SUBNET_CIDR's that we provide in the env.tfvars
+
+# my logic to solve the above challene is 
+# 1) Count the length of the variable and based on the length , run a loop.
