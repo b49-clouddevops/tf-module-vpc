@@ -1,7 +1,7 @@
 resource "aws_subnet" "main" {
   count      = length(var.SUBNET_CIDR)
   vpc_id     = aws_vpc.main.id
-  cidr_block = 
+  cidr_block = element(var.AZ)
 
   tags = {
     Name = "Main"
