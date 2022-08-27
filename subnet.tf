@@ -1,7 +1,7 @@
 resource "aws_subnet" "main" {
   count      = length(var.SUBNET_CIDR)
   vpc_id     = aws_vpc.main.id
-  cidr_block = ???
+  cidr_block = 
 
   tags = {
     Name = "Main"
@@ -17,3 +17,4 @@ resource "aws_subnet" "main" {
 # 2) How to run the loop then : In tf, we have something called as COUNT.
 
 # Count, always works work with cound.index ( value of the particular iteration )
+# count.index is the iteration number
