@@ -18,3 +18,4 @@ resource "aws_subnet" "main" {
 
 # Count, always works work with cound.index ( value of the particular iteration )
 # count.index is the iteration number
+# element retrieves a single element from a list
