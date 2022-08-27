@@ -13,3 +13,4 @@ resource "aws_subnet" "main" {
 
 # my logic to solve the above challene is 
 # 1) Count the length of the variable and based on the length , run a loop.
+# 2) How to run the loop then : In tf, we have something called as COUNT.
