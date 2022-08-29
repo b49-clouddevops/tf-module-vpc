@@ -7,6 +7,11 @@ resource "aws_internet_gateway" "igw" {
 }
 
 
+# Creates Elastic IP for the 
+resource "aws_eip" "lb" {
+  instance = aws_instance.web.id
+  vpc      = true
+}
 
 
 # Nat gateway needs eip
