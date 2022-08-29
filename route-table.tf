@@ -52,6 +52,7 @@ resource "aws_route_table_association" "private-rt-assoc" {
   route_table_id = aws_route_table.private-route-table.id
 }
 
+# Adding the tf created vpc cidr route to the DEFAULT VPC RT for giving ws access to VPC
 resource "aws_route" "r" {
   route_table_id            = var.DEFAULT_VPC_RT
   destination_cidr_block    = var.VPC_CIDR
