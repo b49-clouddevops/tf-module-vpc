@@ -19,7 +19,7 @@ resource "aws_nat_gateway" "ngw" {
   subnet_id     = aws_subnet.public.*.id[0]  # Attaches to the pubnet 1
 
   tags = {
-    Name = "gw NAT"
+    Name = "${var.ENV}-ngw"
   }
 
   # To ensure proper ordering, it is recommended to add an explicit dependency
