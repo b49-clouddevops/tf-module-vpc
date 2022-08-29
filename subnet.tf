@@ -5,7 +5,7 @@ resource "aws_subnet" "public" {
   availability_zone = element(var.AZ, count.index)
 
   tags = {
-    Name = "${var.ENV}-pubsubnet-${element(var.AZ, count.index)}"
+    Name = "${var.ENV}-pub-subnet-${element(var.AZ, count.index)}"
   }
 }
 
@@ -16,7 +16,7 @@ resource "aws_subnet" "private" {
   availability_zone = element(var.AZ, count.index)
 
   tags = {
-    Name = "${var.ENV}-pubsubnet-${element(var.AZ, count.index)}"
+    Name = "${var.ENV}-prv-subnet-${element(var.AZ, count.index)}"
   }
 }
 
