@@ -1,5 +1,6 @@
 resource "aws_route_table" "public-route-table" {
-  vpc_id = aws_vpc.main.id
+  vpc_id     = aws_vpc.main.id
+  depends_on =  
 
   route {
     cidr_block                = var.DEFAULT_VPC_CIDR
@@ -11,7 +12,7 @@ resource "aws_route_table" "public-route-table" {
     gateway_id                = aws_vpc_peering_connection.peer.id
   }
   tags = {
-    Name = "${var.ENV}-route-table"
+    Name = "${var.ENV}-pub-route-table"
   }
 }
 
