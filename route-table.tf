@@ -25,13 +25,3 @@
 #  # depends_on                = [aws_vpc.main.id]
 # }
 
-resource "aws_route_table" "public" {
-  count = lenght(var.PUBLIC_SUBNET_CIDR)
-  vpc_id = aws_vpc.main.id
-
-
-
-  tags = {
-    Name = "${var.ENV}-route-table"
-  }
-}
