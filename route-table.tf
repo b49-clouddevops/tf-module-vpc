@@ -52,10 +52,10 @@ resource "aws_route_table_association" "private-rt-assoc" {
   route_table_id = aws_route_table.private-route-table.id
 }
 
-# resource "aws_route" "r" {
-#   route_table_id            = var.DEFAULT_VPC_RT
-#   destination_cidr_block    = var.VPC_CIDR
-#   vpc_peering_connection_id = aws_vpc_peering_connection.peer.id 
-#  # depends_on                = [aws_vpc.main.id]
-# }
+resource "aws_route" "r" {
+  route_table_id            = var.DEFAULT_VPC_RT
+  destination_cidr_block    = var.VPC_CIDR
+  vpc_peering_connection_id = aws_vpc_peering_connection.peer.id 
+ # depends_on                = [aws_vpc.main.id]
+}
 
