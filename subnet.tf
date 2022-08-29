@@ -1,14 +1,24 @@
 resource "aws_subnet" "public" {
   count             = length(var.PUBLIC_SUBNET_CIDR)
   vpc_id            = aws_vpc.main.id
-  cidr_block        = element(var.SUBNET_CIDR, count.index)
+  cidr_block        = element(var.PUBLIC_SUBNET_CIDR, count.index)
   availability_zone = element(var.AZ, count.index)
 
   tags = {
-    Name = "${var.ENV}-subnet-${element(var.AZ, count.index)}"
+    Name = "${var.ENV}-pubsubnet-${element(var.AZ, count.index)}"
   }
 }
 
+resource "aws_subnet" "private" {
+  count             = length(var.PRIVATE_SUBNET_CIDR)
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = element(var.PRIVATE_SUBNET_CIDR, count.index)
+  availability_zone = element(var.AZ, count.index)
+
+  tags = {
+    Name = "${var.ENV}-pubsubnet-${element(var.AZ, count.index)}"
+  }
+}
 
 
 #### The number of subnets to be created will be based on the numbers of SUBNET_CIDR's that we provide in the env.tfvars
