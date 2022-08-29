@@ -23,10 +23,6 @@ resource "aws_subnet" "private" {
 
 
 
-}
-
-
-
 
 #### The number of subnets to be created will be based on the numbers of SUBNET_CIDR's that we provide in the env.tfvars
 
