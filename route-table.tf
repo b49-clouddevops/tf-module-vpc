@@ -37,11 +37,13 @@ resource "aws_route_table" "private-route-table" {
   
   route {
     cidr_block                    = "0.0.0.0/0"
-    nat_gateway_id                = aws_internet_gateway.igw.id
+    nat_gateway_id                = aws_nat_gateway.ngw.id
   }
   tags = {
-    Name = "${var.ENV}-pub-route-table"
+    Name = "${var.ENV}-priv-route-table"
   }
+
+  depends_on  =  [aws_nat_gateway.ngw.id]
 }
 
 resource "aws_route_table_association" "public-rt-assoc" {
