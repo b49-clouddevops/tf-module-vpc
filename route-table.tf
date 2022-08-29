@@ -14,6 +14,7 @@ resource "aws_route_table" "route-table" {
 rtb-043351e6418be34fc
 
 resource "aws_route_table_association" "rt-assoc" {
+  
   subnet_id      = aws_subnet.foo.id
   route_table_id = aws_route_table.bar.id
 }
