@@ -1,6 +1,5 @@
 resource "aws_route_table" "public-route-table" {
   vpc_id     = aws_vpc.main.id
-  depends_on =  
 
   route {
     cidr_block                = var.DEFAULT_VPC_CIDR
@@ -16,11 +15,11 @@ resource "aws_route_table" "public-route-table" {
   }
 }
 
-# resource "aws_route_table_association" "rt-assoc" {
-#   count          = length(aws_subnet.main.*.id)
-#   subnet_id      = element(aws_subnet.main.*.id, count.index)
-#   route_table_id = aws_route_table.route-table.id
-# }
+resource "aws_route_table_association" "public-rt-assoc" {
+  count          = length(aws_subnet.main.*.id)
+  subnet_id      = element(aws_subnet.main.*.id, count.index)
+  route_table_id = aws_route_table.route-table.id
+}
 
 
 # resource "aws_route" "r" {
