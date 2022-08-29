@@ -25,7 +25,8 @@
 #  # depends_on                = [aws_vpc.main.id]
 # }
 
-resource "aws_route_table" "route-table" {
+resource "aws_route_table" "public" {
+  count = lenght(var.)
   vpc_id = aws_vpc.main.id
 
   route {
