@@ -10,3 +10,5 @@ resource "aws_route_table" "route-table" {
     Name = "${var.ENV}-route-table"
   }
 }
+
+rtb-043351e6418be34fc
