@@ -43,7 +43,7 @@ resource "aws_route_table" "private-route-table" {
     Name = "${var.ENV}-priv-route-table"
   }
 
-  depends_on  =  [aws_nat_gateway.ngw.id]
+  depends_on  =  [aws_nat_gateway.ngw]
 }
 
 resource "aws_route_table_association" "private-rt-assoc" {
