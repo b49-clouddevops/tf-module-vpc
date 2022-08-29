@@ -7,16 +7,15 @@ resource "aws_internet_gateway" "igw" {
 }
 
 
-# Creates Elastic IP for the 
-resource "aws_eip" "lb" {
-  instance = aws_instance.web.id
+# Creates Elastic IP for the NGW
+resource "aws_eip" "ngw-eip" {
   vpc      = true
 }
 
 
 # Nat gateway needs eip
-resource "aws_nat_gateway" "example" {
-  allocation_id = aws_eip.example.id
+resource "aws_nat_gateway" "ngw" {
+  allocation_id = aws_eip.ngw-eip.id
   subnet_id     = aws_subnet.example.id
 
   tags = {
