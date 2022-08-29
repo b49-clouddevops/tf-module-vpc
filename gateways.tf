@@ -21,7 +21,6 @@ resource "aws_nat_gateway" "ngw" {
     Name = "${var.ENV}-ngw"
   }
 
-  # To ensure proper ordering, it is recommended to add an explicit dependency
-  # on the Internet Gateway for the VPC.
+# NGW Will be creaeted only after the creation of IGW
   depends_on = [aws_internet_gateway.igw]  
 }
