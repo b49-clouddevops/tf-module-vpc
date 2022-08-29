@@ -16,7 +16,7 @@ resource "aws_eip" "ngw-eip" {
 # Nat gateway needs eip
 resource "aws_nat_gateway" "ngw" {
   allocation_id = aws_eip.ngw-eip.id
-  subnet_id     = aws_subnet.public.id
+  subnet_id     = aws_subnet.public.*.id[0]  # Attaches to the pubnet 1
 
   tags = {
     Name = "gw NAT"
