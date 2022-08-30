@@ -3,5 +3,10 @@ output "VPC_ID" {
 }
 
 output "VPC_CIDR" {
-    
+    value = aws_vpc.main.cidr_block
 }
+
+output "PRIVATE_SUBNET_CIDR"
+
+
+output 
