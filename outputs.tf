@@ -1,3 +1,4 @@
+# Outputs helps you in sharing the information to other modules as they are going to be published in a format that others can read
 output "VPC_ID" {
     value = aws_vpc.main.id 
 }
@@ -22,3 +23,10 @@ output "PRIVATE_SUBNET_CIDR" {
 output "PUBLIC_SUBNET_CIDR" {
     value = aws_subnet.public.*.cidr_block
 }
+
+output "DEFAULT_VPC_ID" {
+    value = var.DEFAULT_VPC_ID
+}
+
+output "DEFAULT_VPC_CIDR" "
+"
